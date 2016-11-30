@@ -47,8 +47,11 @@
   <ItemGroup>
      <Compile Include="Assets\Scripts\bulletMove.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
+     <Compile Include="Assets\Scripts\doorMove.cs" />
+     <Compile Include="Assets\Scripts\emailTest.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\targetControl.cs" />
+     <Compile Include="Assets\Scripts\transitionManager.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

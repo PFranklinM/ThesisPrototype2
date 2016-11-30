@@ -41,9 +41,21 @@ public class bulletMove : MonoBehaviour {
 		if (coll.gameObject.tag == "enemy") {
 			Destroy (Bullet);
 		}
-	}
 
-	public void destroyBullet(){
-		Destroy (Bullet);
+		if (coll.gameObject.tag == "ground") {
+			Destroy (Bullet);
+		}
+
+		if (coll.gameObject.tag == "ceiling") {
+			Destroy (Bullet);
+		}
+
+		if (coll.gameObject.tag == "wall") {
+			Destroy (Bullet);
+		}
+
+		if (coll.gameObject.tag == "door") {
+			Destroy (Bullet);
+		}
 	}
 }
