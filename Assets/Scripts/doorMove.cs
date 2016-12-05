@@ -3,10 +3,16 @@ using System.Collections;
 
 public class doorMove : MonoBehaviour {
 
-	bool doorIsClosed = true;
+	bool doorIsHittable = true;
+
+	Vector3 originalPos;
 
 	// Use this for initialization
 	void Start () {
+
+		originalPos = new Vector3 (this.transform.position.x,
+			this.transform.position.y,
+			this.transform.position.z);
 	
 	}
 	
@@ -16,17 +22,30 @@ public class doorMove : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll){
-		if (coll.gameObject.tag == "bullet") {
+		if (coll.gameObject.tag == "bullet" || coll.gameObject.tag == "melee") {
 			Vector3 doorPos = new Vector3 (transform.position.x,
 				transform.position.y,
 				transform.position.z);
 
-			if (doorIsClosed == true) {
+			if (doorIsHittable == true) {
 				doorPos.y += 15f;
-				doorIsClosed = false;
+				doorIsHittable = false;
 			}
 
 			transform.position = doorPos;
 		}
+	}
+
+	public void timeToClose(){
+		Vector3 doorPos = new Vector3 (transform.position.x,
+			transform.position.y,
+			transform.position.z);
+
+		if (transform.position.y > originalPos.y) {
+			doorPos.y -= 15f;
+		}
+
+		doorIsHittable = true;
+		transform.position = doorPos;
 	}
 }

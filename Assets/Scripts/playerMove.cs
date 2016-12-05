@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class playerMove : MonoBehaviour {
 
@@ -7,7 +8,7 @@ public class playerMove : MonoBehaviour {
 
 	public GameObject cameraCollider;
 
-//	public GameObject playerShadow;
+	public GameObject playerShadow;
 
 	Rigidbody2D rb;
 
@@ -17,16 +18,32 @@ public class playerMove : MonoBehaviour {
 
 	public bool screenTransition;
 
-//	float shadowMoveAmount = 0.5f;
-//	float shadowMoveTimer = 0;
+	float shadowMoveAmount = 0.5f;
+	float shadowMoveTimer = 0;
 
-	bool facingLeft;
-	bool facingRight;
+	public bool facingLeft;
+	public bool facingRight;
 
 	bool playerIsAirborn;
 
+	int health;
+
+	public GameObject healthText;
+
+	//textBoxMovement
+	public bool canMove;
+
+	//player ability bools
+	public bool playerHasFlight;
+	public bool playerHasMelee;
+	public bool playerHasShield;
+	public bool playerHasDoubleJump;
+
 	// Use this for initialization
 	void Start () {
+
+		playerShadow.SetActive (true);
+		//set this to false to hide player shadow at beginning of game, then have a trigger set it to true when player gets the shadow
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -40,19 +57,27 @@ public class playerMove : MonoBehaviour {
 		playerIsAirborn = false;
 
 		screenTransition = false;
+
+		health = 10;
+
+		playerHasFlight = true;
 	
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+		if (canMove == false) {
+			return;
+		}
+
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
 			player.transform.position.z);
 
-//		Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-//			playerShadow.transform.position.y,
-//			playerShadow.transform.position.z);
+		Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
+			playerShadow.transform.position.y,
+			playerShadow.transform.position.z);
 
 		if (screenTransition == false) {
 
@@ -70,21 +95,21 @@ public class playerMove : MonoBehaviour {
 		}
 
 		if (facingLeft == true) {
-//			shadowPos.x = playerPos.x + 1.5f;
+			shadowPos.x = playerPos.x + 3.5f;
 		}
 
 		if (facingRight == true) {
-//			shadowPos.x = playerPos.x - 1.5f;
+			shadowPos.x = playerPos.x - 3.5f;
 		}
 
-//		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
-//
-//		shadowMoveTimer += Time.deltaTime;
-//
-//		if(shadowMoveTimer >= 1) {
-//			shadowMoveAmount = -shadowMoveAmount;
-//			shadowMoveTimer = 0;
-//		}
+		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
+
+		shadowMoveTimer += Time.deltaTime;
+
+		if(shadowMoveTimer >= 1) {
+			shadowMoveAmount = -shadowMoveAmount;
+			shadowMoveTimer = 0;
+		}
 
 		if (screenTransition == false) {
 
@@ -102,42 +127,61 @@ public class playerMove : MonoBehaviour {
 			}
 
 			if (playerIsAirborn == true) {
-//			shadowPos.y = playerPos.y + 0.5f;
+			shadowPos.y = playerPos.y + 0.5f;
 			}
 
 		}
 
-		if (screenTransition == true) {
-			playerPos.x += 15 * Time.deltaTime;
+		//screen transitions
+		if (screenTransition == true && facingRight == true) {
+			playerPos.x += 10 * Time.deltaTime;
 		}
 
-//		playerShadow.transform.position = shadowPos;
+		if(screenTransition == true && facingLeft == true) {
+			playerPos.x -= 10 * Time.deltaTime;
+		}
+
+		playerShadow.transform.position = shadowPos;
 
 		player.transform.position = playerPos;
 
 		Physics2D.IgnoreCollision(cameraCollider.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+
+		//health and dying
+		Text playerHealthText = healthText.GetComponent<Text>();
+		playerHealthText.text = "Health: " + health;
+
+		if (health <= 0) {
+			Application.LoadLevel ("Dead");
+		}
 	
 	}
 
 	void FixedUpdate () {
 
+		if (canMove == false) {
+			return;
+		}
+
 		if (screenTransition == false) {
 
-			if (Input.GetKey (KeyCode.W)) {
-				player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
-				player.GetComponent<Rigidbody2D> ().drag = 10.0f;
-				playerIsFlying = true;
-				playerIsAirborn = true;
+			if (playerHasFlight == true) {
+				if (Input.GetKey (KeyCode.W)) {
+					player.GetComponent<Rigidbody2D> ().gravityScale = 0.0f;
+					player.GetComponent<Rigidbody2D> ().drag = 10.0f;
+					playerIsFlying = true;
+					playerIsAirborn = true;
 
-				if (playerIsFlying == true) {
-					player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 175f);
+					if (playerIsFlying == true) {
+						player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * 175f);
+					}
 				}
-			}
 
-			if (Input.GetKey (KeyCode.S) && playerIsFlying == true) {
-				player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * -175f);
-			}
+				if (Input.GetKey (KeyCode.S) && playerIsFlying == true) {
+					player.GetComponent<Rigidbody2D> ().AddForce (player.transform.up * -175f);
+				}
 
+			}
 		}
 
 	}
@@ -149,26 +193,27 @@ public class playerMove : MonoBehaviour {
 				player.transform.position.y,
 				player.transform.position.z);
 
-//			Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
-//				playerShadow.transform.position.y,
-//				playerShadow.transform.position.z);
+			Vector3 shadowPos = new Vector3 (playerShadow.transform.position.x,
+				playerShadow.transform.position.y,
+				playerShadow.transform.position.z);
 
 			jumpCounter = 0;
 			playerIsFlying = false;
 			playerIsAirborn = false;
 
-//			shadowPos.y = playerPos.y + 0.5f;
+			shadowPos.y = playerPos.y + 0.5f;
 
 			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 15.0f;
 
-//			playerShadow.transform.position = shadowPos;
+			playerShadow.transform.position = shadowPos;
 
 			player.transform.position = playerPos;
 		}
 
 		if (coll.gameObject.tag == "enemy") {
-//			Debug.Log ("player was hit");
+
+			health -= 1;
 		}
 
 	}

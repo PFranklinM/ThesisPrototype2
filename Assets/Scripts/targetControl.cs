@@ -29,8 +29,12 @@ public class targetControl : MonoBehaviour {
 	public bool playerFacingLeft;
 	public bool playerFacingRight;
 
+	public playerMove thePlayer;
+
 	// Use this for initialization
 	void Start () {
+
+		thePlayer = FindObjectOfType<playerMove> ();
 
 		AREquipped = true;
 		SGEquipped = false;
@@ -50,6 +54,10 @@ public class targetControl : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		if (thePlayer.canMove == false) {
+			return;
+		}
 
 		Vector3 playerPos = new Vector3 (player.transform.position.x,
 			player.transform.position.y,
@@ -96,10 +104,10 @@ public class targetControl : MonoBehaviour {
 
 //Melee Behavior
 
-		meleeColliderRightPos.x = playerPos.x + 2;
+		meleeColliderRightPos.x = playerPos.x + 4;
 		meleeColliderRightPos.y = playerPos.y;
 
-		meleeColliderLeftPos.x = playerPos.x - 2;
+		meleeColliderLeftPos.x = playerPos.x - 4;
 		meleeColliderLeftPos.y = playerPos.y;
 
 		meleeColliderRight.transform.position = meleeColliderRightPos;
