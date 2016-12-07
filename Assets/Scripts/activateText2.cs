@@ -37,9 +37,9 @@ public class activateText2 : MonoBehaviour {
 			textBox.endAtLine = endLine;
 			textBox.enableTextBox ();
 
-			textHasPlayed = true;
-
 			otherCharacterTalk = true;
+
+			textHasPlayed = true;
 
 			lockedInWall.SetActive (true);
 		}

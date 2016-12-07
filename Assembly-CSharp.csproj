@@ -48,6 +48,12 @@
      <Compile Include="Assets\Scripts\activateText1.cs" />
      <Compile Include="Assets\Scripts\activateText2.cs" />
      <Compile Include="Assets\Scripts\activateText3.cs" />
+     <Compile Include="Assets\Scripts\activateText4.cs" />
+     <Compile Include="Assets\Scripts\activateText5.cs" />
+     <Compile Include="Assets\Scripts\activateText6.cs" />
+     <Compile Include="Assets\Scripts\activateText7.cs" />
+     <Compile Include="Assets\Scripts\activateText8.cs" />
+     <Compile Include="Assets\Scripts\activateText9.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemyMove.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\bulletMove.cs" />
@@ -57,14 +63,22 @@
      <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
+     <Compile Include="Assets\Scripts\playerWentWhereTheyShouldntBoolScript.cs" />
      <Compile Include="Assets\Scripts\restart.cs" />
      <Compile Include="Assets\Scripts\shadowCharacterTextBoxManager.cs" />
+     <Compile Include="Assets\Scripts\shadowSpriteScript.cs" />
      <Compile Include="Assets\Scripts\targetControl.cs" />
      <Compile Include="Assets\Scripts\transitionEndManager.cs" />
      <Compile Include="Assets\Scripts\transitionStartManager.cs" />
+     <None Include="Assets\Dialog\MeetingShadowCharacterDialog5.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog2.txt" />
      <None Include="Assets\Dialog\IntroDialog.txt" />
+     <None Include="Assets\Dialog\MeetingShadowDialog4.txt" />
+     <None Include="Assets\Dialog\ShadowReminderDialog1.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog1.txt" />
+     <None Include="Assets\Dialog\meetingShadowDialog6.txt" />
+     <None Include="Assets\Dialog\MeetingShadowDialog3.txt" />
+     <None Include="Assets\Dialog\ShadowReminderDialog2.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

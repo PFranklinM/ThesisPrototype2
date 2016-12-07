@@ -42,6 +42,12 @@ public class playerMove : MonoBehaviour {
 	//player has met shadow bool
 	public bool playerHasShadow;
 
+	//playerSprites
+	public Sprite playerStandingLeft;
+	public Sprite playerStandingRight;
+
+	SpriteRenderer spriteRenderer;
+
 	// Use this for initialization
 	void Start () {
 
@@ -63,6 +69,11 @@ public class playerMove : MonoBehaviour {
 		playerHasFlight = true;
 
 		playerHasShadow = false;
+
+		spriteRenderer = GetComponent<SpriteRenderer> ();
+		if (spriteRenderer.sprite == null) {
+			spriteRenderer.sprite = playerStandingRight;
+		}
 	
 	}
 	
@@ -159,6 +170,14 @@ public class playerMove : MonoBehaviour {
 
 		if (health <= 0) {
 			Application.LoadLevel ("Dead");
+		}
+
+		if (facingLeft == true) {
+			spriteRenderer.sprite = playerStandingLeft;
+		}
+
+		if (facingRight == true) {
+			spriteRenderer.sprite = playerStandingRight;
 		}
 	
 	}

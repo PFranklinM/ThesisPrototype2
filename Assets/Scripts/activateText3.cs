@@ -13,7 +13,7 @@ public class activateText3 : MonoBehaviour {
 
 	bool textHasPlayed = false;
 
-//	bool otherCharacterTalk = false;
+	public bool otherCharacterTalk = false;
 
 	public activateText2 previousText;
 
@@ -27,9 +27,9 @@ public class activateText3 : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate (){
 
-		if (previousText.otherCharacterTalk == true && SCTextBox.isActive == false) {
+		if (previousText.otherCharacterTalk == true && SCTextBox.isActive == false && textHasPlayed == false) {
 			nextPlayerTalking ();
 		}
 	
@@ -41,6 +41,8 @@ public class activateText3 : MonoBehaviour {
 		MCTextBox.endAtLine = endLine;
 		MCTextBox.enableTextBox ();
 
-		previousText.otherCharacterTalk = false;
+		otherCharacterTalk = true;
+
+		textHasPlayed = true;
 	}
 }
