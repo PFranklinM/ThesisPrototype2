@@ -1,12 +1,11 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/restart.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/activateText2.cs">
     <Files>
-      <File FileName="Assets/Scripts/enemyMove.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/bouncingEnemySpawner.cs" Line="29" Column="22" />
-      <File FileName="Assets/Scripts/targetControl.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/playerMove.cs" Line="140" Column="33" />
-      <File FileName="Assets/Scripts/restart.cs" Line="18" Column="3" />
+      <File FileName="Assets/Scripts/activateText2.cs" Line="37" Column="32" />
+      <File FileName="Assets/Scripts/activateText3.cs" Line="38" Column="27" />
+      <File FileName="Assets/Scripts/mainCharacterTextBoxManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/shadowCharacterTextBoxManager.cs" Line="50" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

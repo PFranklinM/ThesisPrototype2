@@ -14,6 +14,8 @@ public class activateText2 : MonoBehaviour {
 
 	bool textHasPlayed = false;
 
+	public bool otherCharacterTalk = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -36,6 +38,8 @@ public class activateText2 : MonoBehaviour {
 			textBox.enableTextBox ();
 
 			textHasPlayed = true;
+
+			otherCharacterTalk = true;
 
 			lockedInWall.SetActive (true);
 		}
