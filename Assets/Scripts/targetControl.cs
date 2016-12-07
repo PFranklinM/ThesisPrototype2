@@ -36,7 +36,7 @@ public class targetControl : MonoBehaviour {
 
 		thePlayer = FindObjectOfType<playerMove> ();
 
-		AREquipped = true;
+		AREquipped = false;
 		SGEquipped = false;
 		HCEquipped = false;
 		RLEquipped = false;

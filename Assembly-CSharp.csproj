@@ -46,20 +46,23 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Scripts\activateText1.cs" />
+     <Compile Include="Assets\Scripts\activateText2.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemyMove.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\bulletMove.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
      <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\emailTest.cs" />
+     <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\restart.cs" />
+     <Compile Include="Assets\Scripts\shadowCharacterTextBoxManager.cs" />
      <Compile Include="Assets\Scripts\targetControl.cs" />
-     <Compile Include="Assets\Scripts\textBoxManager.cs" />
      <Compile Include="Assets\Scripts\transitionEndManager.cs" />
      <Compile Include="Assets\Scripts\transitionStartManager.cs" />
-     <None Include="Assets\Dialog\SampleDialog.txt" />
+     <None Include="Assets\Dialog\IntroDialog.txt" />
+     <None Include="Assets\Dialog\meetingShadowDialog.txt" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

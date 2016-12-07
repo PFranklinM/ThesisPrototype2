@@ -39,11 +39,11 @@ public class playerMove : MonoBehaviour {
 	public bool playerHasShield;
 	public bool playerHasDoubleJump;
 
+	//player has met shadow bool
+	public bool playerHasShadow;
+
 	// Use this for initialization
 	void Start () {
-
-		playerShadow.SetActive (true);
-		//set this to false to hide player shadow at beginning of game, then have a trigger set it to true when player gets the shadow
 
 		rb = GetComponent<Rigidbody2D>();
 
@@ -61,6 +61,8 @@ public class playerMove : MonoBehaviour {
 		health = 10;
 
 		playerHasFlight = true;
+
+		playerHasShadow = false;
 	
 	}
 	
@@ -94,12 +96,14 @@ public class playerMove : MonoBehaviour {
 			}
 		}
 
-		if (facingLeft == true) {
-			shadowPos.x = playerPos.x + 3.5f;
-		}
+		if (playerHasShadow == true) {
+			if (facingLeft == true) {
+				shadowPos.x = playerPos.x + 3.5f;
+			}
 
-		if (facingRight == true) {
-			shadowPos.x = playerPos.x - 3.5f;
+			if (facingRight == true) {
+				shadowPos.x = playerPos.x - 3.5f;
+			}
 		}
 
 		shadowPos.y -= shadowMoveAmount * Time.deltaTime;
@@ -126,8 +130,10 @@ public class playerMove : MonoBehaviour {
 				playerIsAirborn = true;
 			}
 
-			if (playerIsAirborn == true) {
-			shadowPos.y = playerPos.y + 0.5f;
+			if (playerHasShadow == true) {
+				if (playerIsAirborn == true) {
+					shadowPos.y = playerPos.y + 0.5f;
+				}
 			}
 
 		}
@@ -145,7 +151,7 @@ public class playerMove : MonoBehaviour {
 
 		player.transform.position = playerPos;
 
-		Physics2D.IgnoreCollision(cameraCollider.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
+//		Physics2D.IgnoreCollision(cameraCollider.GetComponent<Collider2D>(), player.GetComponent<Collider2D>());
 
 		//health and dying
 		Text playerHealthText = healthText.GetComponent<Text>();
@@ -201,7 +207,10 @@ public class playerMove : MonoBehaviour {
 			playerIsFlying = false;
 			playerIsAirborn = false;
 
-			shadowPos.y = playerPos.y + 0.5f;
+
+			if (playerHasShadow == true) {
+				shadowPos.y = playerPos.y + 0.5f;
+			}
 
 			player.GetComponent<Rigidbody2D> ().drag = 1.0f;
 			player.GetComponent<Rigidbody2D> ().gravityScale = 15.0f;
