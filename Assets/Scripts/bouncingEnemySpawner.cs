@@ -33,7 +33,7 @@ public class bouncingEnemySpawner : MonoBehaviour {
 			return;
 		}
 
-		if (Vector3.Distance (transform.position, player.transform.position) < 50f) {
+		if (Vector3.Distance (transform.position, player.transform.position) < 47f) {
 			playerInCombat = true;
 
 			spawnTimer += Time.deltaTime;

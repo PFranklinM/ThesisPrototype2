@@ -43,6 +43,7 @@ public class activateText10 : MonoBehaviour {
 
 			player.playerHasFlight = false;
 			target.AREquipped = true;
+			player.playerHasShadow = true;
 
 			playerHasDoneTheFirstSacrifice = true;
 

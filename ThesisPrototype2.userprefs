@@ -4,13 +4,7 @@
     <Files>
       <File FileName="Assets/Scripts/mainCharacterTextBoxManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/shadowCharacterTextBoxManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText8.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText9.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText3.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText4.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText5.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText6.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/activateText7.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/audioManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
