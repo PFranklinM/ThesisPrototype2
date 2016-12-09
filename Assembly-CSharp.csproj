@@ -45,7 +45,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\ARDoorMove.cs" />
      <Compile Include="Assets\Scripts\activateText1.cs" />
+     <Compile Include="Assets\Scripts\activateText10.cs" />
      <Compile Include="Assets\Scripts\activateText2.cs" />
      <Compile Include="Assets\Scripts\activateText3.cs" />
      <Compile Include="Assets\Scripts\activateText4.cs" />
@@ -58,9 +60,9 @@
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\bulletMove.cs" />
      <Compile Include="Assets\Scripts\cameraFollow.cs" />
-     <Compile Include="Assets\Scripts\doorMove.cs" />
      <Compile Include="Assets\Scripts\emailTest.cs" />
      <Compile Include="Assets\Scripts\mainCharacterTextBoxManager.cs" />
+     <Compile Include="Assets\Scripts\meleeDoorMove.cs" />
      <Compile Include="Assets\Scripts\playerLosesFlight.cs" />
      <Compile Include="Assets\Scripts\playerMove.cs" />
      <Compile Include="Assets\Scripts\playerWentWhereTheyShouldntBoolScript.cs" />
@@ -69,10 +71,12 @@
      <Compile Include="Assets\Scripts\shadowSpriteScript.cs" />
      <Compile Include="Assets\Scripts\targetControl.cs" />
      <Compile Include="Assets\Scripts\transitionEndManager.cs" />
-     <Compile Include="Assets\Scripts\transitionStartManager.cs" />
+     <Compile Include="Assets\Scripts\transitionStartManagerOne.cs" />
+     <Compile Include="Assets\Scripts\transitionStartManagerTwo.cs" />
      <None Include="Assets\Dialog\MeetingShadowCharacterDialog5.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog2.txt" />
      <None Include="Assets\Dialog\IntroDialog.txt" />
+     <None Include="Assets\Dialog\firstSacrificeDialog.txt" />
      <None Include="Assets\Dialog\MeetingShadowDialog4.txt" />
      <None Include="Assets\Dialog\ShadowReminderDialog1.txt" />
      <None Include="Assets\Dialog\meetingShadowDialog1.txt" />

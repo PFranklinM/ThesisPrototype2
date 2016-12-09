@@ -11,6 +11,8 @@ public class activateText9 : MonoBehaviour {
 	public shadowCharacterTextBoxManager textBox;
 	public playerWentWhereTheyShouldntBoolScript checkpoint;
 
+	public activateText10 sacrifice;
+
 	bool textHasPlayed = false;
 
 
@@ -20,6 +22,8 @@ public class activateText9 : MonoBehaviour {
 		textBox = FindObjectOfType<shadowCharacterTextBoxManager> ();
 
 		checkpoint = FindObjectOfType<playerWentWhereTheyShouldntBoolScript> ();
+
+		sacrifice = FindObjectOfType<activateText10> ();
 	
 	}
 	
@@ -30,7 +34,8 @@ public class activateText9 : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D coll){
 		if (coll.gameObject.tag == "player" && textHasPlayed == false && 
-			checkpoint.playerWentWhereTheyShouldnt == true) {
+			checkpoint.playerWentWhereTheyShouldnt == true &&
+			sacrifice.playerHasDoneTheFirstSacrifice == false) {
 
 			textBox.reloadScript (theText);
 			textBox.currentLine = startLine;

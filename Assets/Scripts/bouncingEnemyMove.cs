@@ -85,5 +85,11 @@ public class bouncingEnemyMove : MonoBehaviour {
 			Destroy (this.gameObject);
 		}
 	}
+
+	void OnTriggerEnter2D(Collider2D coll){
+		if (coll.gameObject.tag == "transitionEnd") {
+			Destroy (this.gameObject);
+		}
+	}
 }
 

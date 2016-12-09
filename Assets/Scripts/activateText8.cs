@@ -10,6 +10,8 @@ public class activateText8 : MonoBehaviour {
 
 	public shadowCharacterTextBoxManager textBox;
 
+	public activateText10 sacrifice;
+
 	bool textHasPlayed = false;
 
 	public bool snarkyRemarkActive = false;
@@ -18,6 +20,8 @@ public class activateText8 : MonoBehaviour {
 	void Start () {
 
 		textBox = FindObjectOfType<shadowCharacterTextBoxManager> ();
+
+		sacrifice = FindObjectOfType<activateText10> ();
 	
 	}
 	
@@ -27,7 +31,9 @@ public class activateText8 : MonoBehaviour {
 	}
 
 	void OnTriggerEnter2D(Collider2D coll){
-		if (coll.gameObject.tag == "player" && textHasPlayed == false) {
+		if (coll.gameObject.tag == "player" && textHasPlayed == false && 
+			sacrifice.playerHasDoneTheFirstSacrifice == false) {
+
 			textBox.reloadScript (theText);
 			textBox.currentLine = startLine;
 			textBox.endAtLine = endLine;
