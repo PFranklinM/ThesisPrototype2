@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\activateText7.cs" />
      <Compile Include="Assets\Scripts\activateText8.cs" />
      <Compile Include="Assets\Scripts\activateText9.cs" />
+     <Compile Include="Assets\Scripts\audioManager.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemyMove.cs" />
      <Compile Include="Assets\Scripts\bouncingEnemySpawner.cs" />
      <Compile Include="Assets\Scripts\bulletMove.cs" />

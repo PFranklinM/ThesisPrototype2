@@ -13,6 +13,8 @@ public class bouncingEnemySpawner : MonoBehaviour {
 
 	public playerMove thePlayer;
 
+	public bool playerInCombat = false;
+
 	// Use this for initialization
 	void Start () {
 
@@ -32,12 +34,14 @@ public class bouncingEnemySpawner : MonoBehaviour {
 		}
 
 		if (Vector3.Distance (transform.position, player.transform.position) < 50f) {
+			playerInCombat = true;
+
 			spawnTimer += Time.deltaTime;
 
 			if (spawnTimer > 2f) {
 				float randomDistance = Random.Range (-15, 15);
 
-				GameObject jumpingEnemyClone = (GameObject)Instantiate(jumpingEnemy);
+				GameObject jumpingEnemyClone = (GameObject)Instantiate (jumpingEnemy);
 
 				Vector3 clonePos = new Vector3 (jumpingEnemyClone.transform.position.x,
 					                   jumpingEnemyClone.transform.position.y,
@@ -50,6 +54,8 @@ public class bouncingEnemySpawner : MonoBehaviour {
 
 				jumpingEnemyClone.transform.position = clonePos;
 			}
+		} else {
+			playerInCombat = false;
 		}
 
 		if (Vector3.Distance (transform.position, player.transform.position) > 50f) {
