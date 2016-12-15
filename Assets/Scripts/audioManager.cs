@@ -27,6 +27,7 @@ public class audioManager : MonoBehaviour {
 
 			if (audio1.volume > 0) {
 				audio1.volume = Mathf.Lerp (0.0f, 1.0f, Time.deltaTime * 10f);
+
 				audio1.Pause ();
 			}
 
@@ -40,6 +41,7 @@ public class audioManager : MonoBehaviour {
 
 			if (audio2.volume > 0) {
 				audio2.volume = Mathf.Lerp (0.0f, 1.0f, Time.deltaTime * 10f);
+
 				audio2.Pause ();
 			}
 

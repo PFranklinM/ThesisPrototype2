@@ -207,6 +207,11 @@ public class playerMove : MonoBehaviour {
 				}
 
 			}
+
+			if (playerHasFlight == false) {
+				player.GetComponent<Rigidbody2D> ().drag = 1.0f;
+				player.GetComponent<Rigidbody2D> ().gravityScale = 15.0f;
+			}
 		}
 
 	}
